@@ -235,9 +235,9 @@ h1 {
 }
 
 .links a.link-web {
-  background: #f4efff;
-  border-color: #cbb8ee;
-  color: #5f3f95;
+  background: #eaf6ff;
+  border-color: #9fcce8;
+  color: #246083;
 }
 
 .links a.link-map::before {
