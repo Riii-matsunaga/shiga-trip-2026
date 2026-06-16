@@ -178,7 +178,15 @@ h1 {
 }
 
 .date-time {
-  font-size: 14px;
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 2px 8px;
+
+  background: rgba(0,0,0,.07);
+  color: #555;
+  border-radius: 999px;
+
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -220,24 +228,24 @@ h1 {
   box-shadow: 0 1px 4px rgba(0,0,0,.06);
 }
 
-.links a[href*="google.com/maps"] {
+.links a.link-map {
   background: #fff7df;
   border-color: #f0c86a;
   color: #7a5500;
 }
 
-.links a:not([href*="google.com/maps"]) {
+.links a.link-web {
   background: #f4efff;
   border-color: #cbb8ee;
   color: #5f3f95;
 }
 
-.links a[href*="google.com/maps"]::before {
+.links a.link-map::before {
   content: "📍";
   font-size: 13px;
 }
 
-.links a:not([href*="google.com/maps"])::before {
+.links a.link-web::before {
   content: "🔗";
   font-size: 13px;
 }
@@ -253,19 +261,6 @@ h1 {
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
-}
-
-.item-flex .date-time {
-  display: inline-block;
-  margin-bottom: 4px;
-  padding: 2px 8px;
-
-  background: rgba(0,0,0,.07);
-  color: #555;
-  border-radius: 999px;
-
-  font-size: 12px;
-  font-weight: 700;
 }
 
 .item-move {
@@ -313,16 +308,7 @@ h1 {
 }
 
 .item-move .date-time {
-  display: inline-block;
-
-  padding: 2px 8px;
-
-  background: rgba(255,255,255,.9);
-  border-radius: 999px;
-
-  color: var(--text-sub);
-  font-size: 12px;
-  font-weight: 700;
+  margin-bottom: 0;
 }
 
 .item-move .title {
