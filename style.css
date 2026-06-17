@@ -151,6 +151,8 @@ h1 {
 }
 
 .item {
+  position: relative;
+
   display: grid;
   grid-template-columns: 28px 1fr;
   gap: 8px;
@@ -163,12 +165,55 @@ h1 {
   box-shadow: var(--shadow-card);
 }
 
+.item::before {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+
+  width: 0;
+  border-radius: 0 999px 999px 0;
+
+  background: transparent;
+}
+
 .item.done {
   opacity: .42;
 }
 
 .item.done .title {
   text-decoration: line-through;
+}
+
+.item.next {
+  background: #fffdf3;
+  padding-right: 52px;
+  box-shadow: 0 3px 14px rgba(122, 85, 0, .14);
+}
+
+.item.next::before {
+  width: 5px;
+  background: #d09a18;
+}
+
+.item.next::after {
+  content: "次";
+
+  position: absolute;
+  right: 12px;
+  top: 10px;
+
+  padding: 2px 8px;
+  border-radius: 999px;
+
+  background: #d09a18;
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.4;
 }
 
 .checkbox {
@@ -264,8 +309,6 @@ h1 {
 }
 
 .item-move {
-  position: relative;
-
   grid-template-columns: 52px 1fr;
 
   background: transparent;
@@ -276,7 +319,7 @@ h1 {
   min-height: 54px;
 }
 
-.item-move::before {
+.item-move:not(.next)::before {
   content: "";
 
   position: absolute;
@@ -292,6 +335,25 @@ h1 {
 
 .item-move::after {
   content: none;
+}
+
+.item-move.next {
+  background: #fffdf3;
+  box-shadow: 0 3px 14px rgba(122, 85, 0, .12);
+}
+
+.item-move.next::before {
+  left: 25px;
+  top: -10px;
+  bottom: -10px;
+
+  width: 4px;
+
+  background: #d09a18;
+}
+
+.item-move.next::after {
+  content: "次";
 }
 
 .item-move .checkbox {

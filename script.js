@@ -21,14 +21,22 @@ function getHeaderOffset() {
 }
 
 function applyState() {
-  getItems().forEach(item => {
+  const items = getItems();
+
+  items.forEach(item => {
     const id = item.dataset.id;
     const checkbox = item.querySelector(".checkbox");
     const isDone = doneItems.includes(id);
 
     checkbox.checked = isDone;
     item.classList.toggle("done", isDone);
+    item.classList.remove("next");
   });
+
+  const nextItem = items.find(item => !item.classList.contains("done"));
+  if (nextItem) {
+    nextItem.classList.add("next");
+  }
 }
 
 function scrollToElement(element) {
