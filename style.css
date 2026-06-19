@@ -189,7 +189,6 @@ h1 {
 
 .item.next {
   background: #fffdf3;
-  padding-right: 52px;
   box-shadow: 0 3px 14px rgba(122, 85, 0, .14);
 }
 
@@ -199,13 +198,13 @@ h1 {
 }
 
 .item.next::after {
-  content: "次";
+  content: "次の予定";
 
   position: absolute;
-  right: 12px;
-  top: 10px;
+  right: -10px;
+  top: -10px;
 
-  padding: 2px 8px;
+  padding: 8px 10px;
   border-radius: 999px;
 
   background: #d09a18;
@@ -257,10 +256,10 @@ h1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 6px;
 
   min-width: 78px;
-  padding: 7px 12px;
+  padding: 7px 13px;
 
   border-radius: 999px;
   text-decoration: none;
@@ -274,38 +273,182 @@ h1 {
 }
 
 .links a.link-map {
-  background: #fff7df;
-  border-color: #f0c86a;
-  color: #7a5500;
+  background: #f4f5ed;
+  border-color: #bcc2a5;
+  color: #4f5c32;
 }
 
 .links a.link-web {
-  background: #eaf6ff;
-  border-color: #9fcce8;
-  color: #246083;
+  background: #e8f5ff;
+  border-color: #8fc4e6;
+  color: #1f5d82;
 }
 
 .links a.link-map::before {
-  content: "📍";
-  font-size: 13px;
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: currentColor;
+
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
 }
 
 .links a.link-web::before {
-  content: "🔗";
-  font-size: 13px;
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: currentColor;
+
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.93 9h-3.02a15.6 15.6 0 0 0-1.17-5.01A8.03 8.03 0 0 1 18.93 11ZM12 4.04c.67.96 1.55 3.02 1.87 6.96h-3.74C10.45 7.06 11.33 5 12 4.04ZM4.26 13h3.83c.12 1.84.45 3.52.94 4.86A8.02 8.02 0 0 1 4.26 13Zm3.83-2H4.26a8.02 8.02 0 0 1 4.77-4.86A17.3 17.3 0 0 0 8.09 11ZM12 19.96c-.67-.96-1.55-3.02-1.87-6.96h3.74c-.32 3.94-1.2 6-1.87 6.96Zm2.97-2.1c.49-1.34.82-3.02.94-4.86h3.83a8.02 8.02 0 0 1-4.77 4.86Z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.93 9h-3.02a15.6 15.6 0 0 0-1.17-5.01A8.03 8.03 0 0 1 18.93 11ZM12 4.04c.67.96 1.55 3.02 1.87 6.96h-3.74C10.45 7.06 11.33 5 12 4.04ZM4.26 13h3.83c.12 1.84.45 3.52.94 4.86A8.02 8.02 0 0 1 4.26 13Zm3.83-2H4.26a8.02 8.02 0 0 1 4.77-4.86A17.3 17.3 0 0 0 8.09 11ZM12 19.96c-.67-.96-1.55-3.02-1.87-6.96h3.74c-.32 3.94-1.2 6-1.87 6.96Zm2.97-2.1c.49-1.34.82-3.02.94-4.86h3.83a8.02 8.02 0 0 1-4.77 4.86Z'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
 }
 
 .links a[target="_blank"]::after {
   content: "";
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   background: currentColor;
+  opacity: .7;
 
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
   mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z'/%3E%3C/svg%3E");
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
+}
+
+.note-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  margin-top: 10px;
+  min-width: 72px;
+  padding: 7px 12px;
+
+  border: 1px solid #c7cbd1;
+  border-radius: 999px;
+
+  background: #f6f7f9;
+  color: #4b5563;
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+
+  font: inherit;
+  font-size: 13px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.note-toggle::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: currentColor;
+
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 3h9.5L20 7.5V21H6V3Zm2 2v14h10V9h-4V5H8Zm2 8h6v1.7h-6V13Zm0 3h5v1.7h-5V16Z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 3h9.5L20 7.5V21H6V3Zm2 2v14h10V9h-4V5H8Zm2 8h6v1.7h-6V13Zm0 3h5v1.7h-5V16Z'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.note-toggle.is-open {
+  background: #e9edf2;
+  border-color: #9aa3af;
+  color: #374151;
+}
+
+.note-bubble {
+  position: relative;
+
+  margin-top: 10px;
+  padding: 12px 13px;
+
+  background: #fbfcfd;
+  border: 1px solid #d7dce2;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(31, 41, 55, .1);
+
+  color: var(--text-main);
+  font-size: 13px;
+}
+
+.note-bubble::before {
+  content: "";
+
+  position: absolute;
+  left: 24px;
+  top: -7px;
+
+  width: 12px;
+  height: 12px;
+
+  background: #fbfcfd;
+  border-left: 1px solid #d7dce2;
+  border-top: 1px solid #d7dce2;
+  transform: rotate(45deg);
+}
+
+.note-bubble strong {
+  display: block;
+  margin-bottom: 6px;
+
+  color: #374151;
+  font-size: 13px;
+}
+
+.note-bubble ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.note-bubble li + li {
+  margin-top: 3px;
+}
+
+.note-bubble a {
+  color: #2b6684;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(43, 102, 132, .35);
+  text-underline-offset: 3px;
+}
+
+.note-bubble a:visited {
+  color: #5f5b8f;
+  text-decoration-color: rgba(95, 91, 143, .35);
+}
+
+.note-image {
+  display: block;
+
+  width: 100%;
+  max-height: 260px;
+  margin-top: 10px;
+  border-radius: 10px;
+
+  object-fit: cover;
 }
 
 .item-move {
@@ -353,7 +496,7 @@ h1 {
 }
 
 .item-move.next::after {
-  content: "次";
+  content: "次の予定";
 }
 
 .item-move .checkbox {
@@ -379,4 +522,99 @@ h1 {
   color: var(--text-sub);
   font-size: 13px;
   font-weight: 500;
+}
+
+.debug-tools {
+  padding: 18px 16px 28px;
+  text-align: center;
+}
+
+.reset-checks {
+  padding: 7px 12px;
+
+  border: 1px solid rgba(0,0,0,.14);
+  border-radius: 999px;
+
+  background: #f7f7f7;
+  color: #777777;
+
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.finish-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+
+  display: grid;
+  place-items: center;
+
+  padding: 24px;
+
+  background: rgba(255,255,255,.78);
+  backdrop-filter: blur(10px);
+}
+
+.finish-screen[hidden] {
+  display: none;
+}
+
+.finish-card {
+  width: min(100%, 360px);
+  padding: 28px 24px 24px;
+
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 18px;
+  box-shadow: 0 14px 38px rgba(0,0,0,.16);
+
+  text-align: center;
+}
+
+.finish-label {
+  display: inline-flex;
+  margin-bottom: 12px;
+  padding: 4px 10px;
+
+  background: #fffdf3;
+  border: 1px solid #e7cf87;
+  border-radius: 999px;
+  color: #7a5500;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.finish-card h2 {
+  margin: 0;
+
+  color: var(--text-main);
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.finish-card p {
+  margin: 12px 0 20px;
+
+  color: var(--text-sub);
+  font-size: 14px;
+}
+
+.finish-close {
+  min-width: 140px;
+  padding: 10px 16px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: #333333;
+  color: #ffffff;
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
 }

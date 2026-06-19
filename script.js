@@ -37,6 +37,16 @@ function applyState() {
   if (nextItem) {
     nextItem.classList.add("next");
   }
+
+  updateFinishScreen(items);
+}
+
+function updateFinishScreen(items = getItems()) {
+  const finishScreen = document.querySelector("[data-finish-screen]");
+  if (!finishScreen) return;
+
+  const isFinished = items.length > 0 && items.every(item => item.classList.contains("done"));
+  finishScreen.hidden = !isFinished;
 }
 
 function scrollToElement(element) {
@@ -69,9 +79,13 @@ getItems().forEach(item => {
     const id = item.dataset.id;
 
     if (checkbox.checked) {
-      if (!doneItems.includes(id)) {
-        doneItems.push(id);
-      }
+      const items = getItems();
+      const checkedIndex = items.indexOf(item);
+      const idsToMarkDone = items
+        .slice(0, checkedIndex + 1)
+        .map(item => item.dataset.id);
+
+      doneItems = [...new Set([...doneItems, ...idsToMarkDone])];
     } else {
       doneItems = doneItems.filter(doneId => doneId !== id);
     }
@@ -84,6 +98,38 @@ getItems().forEach(item => {
 document.querySelectorAll("[data-scroll]").forEach(button => {
   button.addEventListener("click", () => {
     scrollToFirstUnchecked(button.dataset.scroll);
+  });
+});
+
+document.querySelectorAll("[data-note-toggle]").forEach(button => {
+  button.addEventListener("click", () => {
+    const note = button.nextElementSibling;
+    if (!note || !note.classList.contains("note-bubble")) return;
+
+    const isOpen = !note.hidden;
+
+    note.hidden = isOpen;
+    button.classList.toggle("is-open", !isOpen);
+    button.setAttribute("aria-expanded", String(!isOpen));
+  });
+});
+
+document.querySelectorAll("[data-reset-checks]").forEach(button => {
+  button.addEventListener("click", () => {
+    if (!window.confirm("すべてのチェックを外しますか？")) return;
+
+    doneItems = [];
+    saveDoneItems();
+    applyState();
+  });
+});
+
+document.querySelectorAll("[data-finish-close]").forEach(button => {
+  button.addEventListener("click", () => {
+    const finishScreen = document.querySelector("[data-finish-screen]");
+    if (finishScreen) {
+      finishScreen.hidden = true;
+    }
   });
 });
 
