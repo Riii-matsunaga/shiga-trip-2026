@@ -10,6 +10,13 @@ function getItems() {
   return [...document.querySelectorAll(".item")];
 }
 
+function updateHeaderHeight() {
+  const header = document.querySelector(".header");
+  if (!header) return;
+
+  document.documentElement.style.setProperty("--header-height", `${header.offsetHeight}px`);
+}
+
 function getHeaderOffset() {
   const header = document.querySelector(".header");
   const dayTitle = document.querySelector(".day-title");
@@ -18,6 +25,17 @@ function getHeaderOffset() {
   const dayTitleHeight = dayTitle ? dayTitle.offsetHeight : 0;
 
   return headerHeight + dayTitleHeight + 10;
+}
+
+updateHeaderHeight();
+
+window.addEventListener("resize", updateHeaderHeight);
+
+if ("ResizeObserver" in window) {
+  const header = document.querySelector(".header");
+  if (header) {
+    new ResizeObserver(updateHeaderHeight).observe(header);
+  }
 }
 
 function applyState() {
