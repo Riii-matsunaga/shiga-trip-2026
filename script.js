@@ -103,7 +103,11 @@ document.querySelectorAll("[data-scroll]").forEach(button => {
 
 document.querySelectorAll("[data-note-toggle]").forEach(button => {
   button.addEventListener("click", () => {
-    const note = button.nextElementSibling;
+    const targetId = button.dataset.bubbleTarget;
+    const note = targetId
+      ? document.querySelector(`[data-bubble-id="${targetId}"]`)
+      : button.nextElementSibling;
+
     if (!note || !note.classList.contains("note-bubble")) return;
 
     const isOpen = !note.hidden;
