@@ -372,7 +372,7 @@ h1 {
 .date-time {
   display: inline-block;
   margin-bottom: 4px;
-  padding: 2px 8px;
+  padding: 2px 15px;
 
   background: rgba(0,0,0,.07);
   color: #555;
@@ -385,6 +385,10 @@ h1 {
 .title {
   font-size: 16px;
   font-weight: 650;
+}
+
+.item:not(.has-thumb):not(.item-move) .title {
+  margin-top: 5px;
 }
 
 .memo {
@@ -404,10 +408,10 @@ h1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 5px;
 
   min-width: 78px;
-  padding: 7px 13px;
+  padding: 7px 10px;
 
   border-radius: 5px;
   text-decoration: none;
