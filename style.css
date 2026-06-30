@@ -32,9 +32,7 @@ body {
   margin: 0;
   background: #ffffff;
   color: var(--text-main);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
-  line-height: 1.6;
-  font-family: "Zen Maru Gothic", sans-serif;
+  font-family: "M PLUS Rounded 1c", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -74,8 +72,8 @@ h1 {
   font-size: 15px;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0,0,0,.08);
-  font-family: "Zen Maru Gothic", sans-serif;
-  font-weight: bold;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 400;
   font-style: normal;
 }
 
