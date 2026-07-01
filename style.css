@@ -112,13 +112,10 @@ h1 {
   box-shadow: 0 2px 7px rgba(0,0,0,.035);
 }
 
-.day-title::before {
-  content: "event_available";
+.day-title::before,
+.item-move.item-car .date-time::before {
   flex: 0 0 auto;
-  width: 22px;
-  height: 22px;
   font-family: "Material Symbols Outlined";
-  font-size: 22px;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -130,6 +127,13 @@ h1 {
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "liga";
+}
+
+.day-title::before {
+  content: "event_available";
+  width: 22px;
+  height: 22px;
+  font-size: 22px;
 }
 
 .day-date {
@@ -246,9 +250,6 @@ h1 {
 .item.has-thumb .links {
   grid-column: 3;
   grid-row: 4;
-}
-
-.item.has-thumb .links {
   margin-top: 6px;
 }
 
@@ -315,18 +316,23 @@ h1 {
 .day3 .item.next .checkbox {
   border-color: #F5CE2A;
 }
-.day2 .item.next .checkbox {
-  border-color: #60d4e0;
-}
 
 .day2 .item.next {
   background: #f4fcfd;
   box-shadow: 0 3px 14px rgba(32, 108, 93, .16);
 }
 
+.day2 .item.next::before {
+  background: #60d4e0;
+}
+
 .day2 .item.next::after {
   background: #60d4e0;
   color: #ffffff;
+}
+
+.day2 .item.next .checkbox {
+  border-color: #60d4e0;
 }
 
 .checkbox {
@@ -640,21 +646,23 @@ h1 {
 }
 
 .item-move {
-  grid-template-columns: 52px 1fr;
+  grid-template-columns: 32px 1fr;
 
   background: transparent;
   box-shadow: none;
   border: none;
 
-  padding: 10px 14px;
+  padding: 10px 8px;
   min-height: 54px;
+  margin-left: 35px;
 }
 
 .item-move:not(.next)::before {
   content: "";
+  --line-color: rgba(0,0,0,.14);
 
   position: absolute;
-  left: 20px;
+  left: -15px;
   top: 0;
   bottom: 0;
 
@@ -666,9 +674,6 @@ h1 {
       var(--line-color) 0 6px,
       transparent 6px 12px
     ) center / 2px 100% no-repeat;
-
-    --line-color: rgba(0,0,0,.14);
-
 }
 
 .item-move::after {
@@ -681,8 +686,10 @@ h1 {
 }
 
 .item-move.next::before {
+  --line-color: #F5CE2A;
+
   position: absolute;
-  left: 20px;
+  left: -15px;
   top: 0;
   bottom: 0;
 
@@ -695,12 +702,18 @@ h1 {
       var(--line-color) 0 6px,
       transparent 6px 12px
     ) center / 2px 100% no-repeat;
-  --line-color: #F5CE2A;
   border-radius: 0;
 }
 
 .day2 .item-move.next::before {
   --line-color: #60d4e0;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      var(--line-color) 0 6px,
+      transparent 6px 12px
+    ) center / 2px 100% no-repeat;
 }
 
 .item-move.next::after {
@@ -713,8 +726,6 @@ h1 {
 
   width: 22px;
   height: 22px;
-  margin-top: 10px;
-  margin-left: 24px;
 }
 
 .item-move .date-time {
@@ -726,22 +737,9 @@ h1 {
 
 .item-move.item-car .date-time::before {
   content: "directions_car";
-  flex: 0 0 auto;
   width: 15px;
   height: 15px;
-  font-family: "Material Symbols Outlined";
   font-size: 15px;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-feature-settings: "liga";
-  -webkit-font-smoothing: antialiased;
-  font-feature-settings: "liga";
 }
 
 .item-move .title {
