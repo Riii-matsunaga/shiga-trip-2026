@@ -184,7 +184,7 @@ h1 {
 
   background: var(--card-bg);
   border-radius: var(--radius-card);
-  padding: 20px 13px;
+  padding: 20px 13px 20px 6px;
 
   box-shadow: var(--shadow-card);
 }
@@ -265,14 +265,14 @@ h1 {
   content: "";
 
   position: absolute;
-  left: 0;
-  top: 12px;
-  bottom: 12px;
+  left: 20px;
+  top: 60px;
+  bottom: 0;
 
-  width: 0;
-  border-radius: 0 999px 999px 0;
+  width: 2px;
+  height: calc(100% - 75px);
 
-  background: transparent;
+  background: rgba(0,0,0,.14);
 }
 
 .item.done {
@@ -289,7 +289,7 @@ h1 {
 }
 
 .item.next::before {
-  width: 5px;
+  width: 3px;
   background: #F5CE2A;
 }
 
@@ -311,13 +311,17 @@ h1 {
   line-height: 1.4;
 }
 
+.day1 .item.next .checkbox,
+.day3 .item.next .checkbox {
+  border-color: #F5CE2A;
+}
+.day2 .item.next .checkbox {
+  border-color: #60d4e0;
+}
+
 .day2 .item.next {
   background: #f4fcfd;
   box-shadow: 0 3px 14px rgba(32, 108, 93, .16);
-}
-
-.day2 .item.next::before {
-  background: #60d4e0;
 }
 
 .day2 .item.next::after {
@@ -650,14 +654,21 @@ h1 {
   content: "";
 
   position: absolute;
-  left: 25px;
-  top: -10px;
-  bottom: -10px;
+  left: 20px;
+  top: 0;
+  bottom: 0;
 
   width: 2px;
-  border-radius: 999px;
+  height: 100%;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      var(--line-color) 0 6px,
+      transparent 6px 12px
+    ) center / 2px 100% no-repeat;
 
-  background: rgba(0,0,0,.14);
+    --line-color: rgba(0,0,0,.14);
+
 }
 
 .item-move::after {
@@ -670,17 +681,26 @@ h1 {
 }
 
 .item-move.next::before {
-  left: 25px;
-  top: -10px;
-  bottom: -10px;
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
 
-  width: 4px;
+  width: 2px;
+  height: 100%;
 
-  background: #F5CE2A;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      var(--line-color) 0 6px,
+      transparent 6px 12px
+    ) center / 2px 100% no-repeat;
+  --line-color: #F5CE2A;
+  border-radius: 0;
 }
 
 .day2 .item-move.next::before {
-  background: #60d4e0;
+  --line-color: #60d4e0;
 }
 
 .item-move.next::after {
